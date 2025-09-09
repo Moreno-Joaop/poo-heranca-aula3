@@ -3,10 +3,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 
-public class PessoaJuridica{
-    private String nome;
-    private String endereco;
-    private LocalDate dataCriacao;
+public class PessoaJuridica extends Pessoa{
     private String nomeFantasia;
     private String cnpj;
 
@@ -16,31 +13,6 @@ public class PessoaJuridica{
         this.setDataCriacao(LocalDate.now());
         this.setNomeFantasia(nomeFantasia);
         this.setCnpj(cnpj);
-    }
-
-
-    public String getNome(){
-        return nome;
-    }
-
-    public void setNome(String endereco){
-        this.nome = nome;
-    }
-
-    public String getEndereco(){
-        return endereco;
-    }
-
-    public void setEndereco(String endereco){
-        this.endereco = endereco;
-    }
-
-    public LocalDate getDataCriacao(){
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(LocalDate dataCriacao){
-        this.dataCriacao = dataCriacao;
     }
 
     public String getNomeFantasia(){
@@ -59,6 +31,7 @@ public class PessoaJuridica{
         this.cnpj = cnpj;
     }
 
+    @Override
     public String exibirInformacoes(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return this.getNome() +" "+ this.getEndereco() +" "+ this.getDataCriacao().format(formatter) +" "+ this.getCnpj() +" "+ this.getNomeFantasia();
